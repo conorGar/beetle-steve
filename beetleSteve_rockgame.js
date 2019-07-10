@@ -1,9 +1,11 @@
 
 const beetleSteve = document.querySelector("#beetle-steve");
 let currentEnemies = [];//document.querySelectorAll(".enemy");
-let roomsItems = [];
+let roomsItemsData = [];
+let roomsItems;
 let speedX = 14;
 let speedY = 14;
+const carriedItems = [];
 
 let xpos = 0;
 let ypos = 0;
@@ -22,19 +24,20 @@ window.addEventListener("keydown", checkDirection)
 
 //happens at the start of page load
 function awake(){
-    /*for(let i = 0; i < 40; i++){
-        let newItem = new Item(30 +(i*20),400,100,100)
-        roomsItems.push(newItem)
+    for(let i = 0; i < 1; i++){
+        let newItem = new Item(300 +(i*140),40,100,100)
+        roomsItemsData.push(newItem)
 
         let newDiv = document.createElement("div");
         newDiv.classList.add("item");
         newDiv.style.left = newItem.x + "px";
         newDiv.style.top = newItem.y + "px";
-
+        newDiv.style.width = newItem.width;
+        newDiv.style.height = newItem.height;
         document.body.appendChild(newDiv);
 
-    }*/
-    
+    }
+    roomsItems = document.querySelectorAll(".item"); //keep track of items
     //creation of enemy
     
     let enemyDiv = document.createElement("div");
@@ -64,20 +67,28 @@ function update(){
     //     }
     // }
     for(let i = 0; i<roomsItems.length;i++){
-        console.log("item x:" + roomsItems[i].x);
-      if (xpos < roomsItems[i].x + roomsItems[i].width &&
-          xpos + beetleSteve.style.width > roomsItems[i].x &&
-          ypos < roomsItems[i].y + roomsItems[i].height &&
-          beetleSteve.style.height + ypos > roomsItems[i].y) {
-              console.log("Collision Happened!!!!!!! :D")
-      }else{
-          console.log("--------------------")
-          console.log(xpos < roomsItems[i].x + roomsItems[i].width );
-          console.log( xpos + beetleSteve.style.width > roomsItems[i].x );
-          console.log( ypos < roomsItems[i].y + roomsItems[i].height );
-          console.log(beetleSteve.style.height + ypos > roomsItems[i].y);
-          // console.log("no collision :(" + element.style.left +" "+ beetleSteve.style.left + " ");
-      }
+    //   if (xpos < roomsItems[i].x + roomsItems[i].width &&
+    //       xpos + beetleSteve.style.width > roomsItems[i].x &&
+    //       ypos < roomsItems[i].y + roomsItems[i].height &&
+    //       beetleSteve.style.height + ypos > roomsItems[i].y) {
+    //           console.log("Collision Happened!!!!!!! :D")
+    //           gatherItem();
+    //   }      
+    
+    if (xpos < parseInt(roomsItems[i].style.left) + roomsItemsData[i].width &&
+        xpos + beetleSteve.style.width > roomsItems[i].style.left &&
+        ypos < parseInt(roomsItems[i].style.top) + roomsItemsData[i].height &&
+        beetleSteve.style.height + ypos > roomsItems[i].style.top) {
+        console.log("Collision Happened!!!!!!! :D")
+
+        gatherItem(roomsItems[i]);
+     }//else{
+    //     console.log("-----------------------")
+    //     console.log(xpos < parseInt(roomsItems[i].style.left) + roomsItemsData[i].width); 
+    //     console.log(xpos + beetleSteve.style.width > roomsItems[i].style.left);
+    //     console.log(ypos < parseInt(roomsItems[i].style.top) + roomsItemsData[i].height);
+    //     console.log(beetleSteve.style.height + ypos > roomsItems[i].style.top);
+    // }
   }
     
 }
@@ -120,11 +131,12 @@ function checkDirection(element){
 
 //Activated when collided with item. Adds item to heldItems and 'attatches' new item to beetleSteve div.
 function gatherItem(item){
+    console.log("gatherItem() called!  ---")
     currentlyHeldItems++;
-    item.style.top = beetleSteve.style.top;
-    item.style.left = beetleSteve.style.left;
+    item.style.top = 30 +(30*carriedItems.length); //items pile on each other
+    item.style.left = 0;
     beetleSteve.appendChild(item);
-    
+    carriedItems.push(item);
 }
 
 
