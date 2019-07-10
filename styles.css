@@ -2,7 +2,7 @@
 
 #beetle-steve{
 
-    width:150px;
+    width:130px;
     height: 150px;
     position: absolute;
     -webkit-transition: all .4s ease-out;
@@ -10,16 +10,21 @@
 }
 
 #beetle-steve-image{
-    width:150px;
-    height: 150px;
+    width:100%;
+    height: 100%;
 }
 
 .item{
-    background-image: url("assets/pollutedPeakCloud.png");
-    background-color: red; 
-    width: 100px;
-    height: 100px;
+
+    width: 110px;
+    height: 80px;
     position: absolute;
+    background-color: blue;
+}
+
+img{
+    width: 100%;
+    height: 100%;
 }
 
 .enemy{
@@ -48,6 +53,15 @@
 #squirrel2{
     top: 200px;
 }
+
+
+
+/* ROCK POSITIONS */
+#rock1{
+    left:500px;
+    top:30px;
+}
+
 
 /* got from: https://codepen.io/frankDraws/pen/rxaPzQ */
 @keyframes leftRight {
