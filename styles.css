@@ -1,5 +1,10 @@
 
 
+body{
+    background-image: url("assets/grassback.jpg");
+    background-size: auto;
+}
+
 #beetle-steve{
 
     width:130px;
@@ -34,9 +39,10 @@ img{
 .tile{
     width: 400px;
     height: 200px;
-    background-color: red;
+    /* background-color: red; */
 
 }
+
 
 #treeBarrier{
     position: absolute;
@@ -131,6 +137,16 @@ img{
     left:560px;
     width: 212px;
     height: 170px;
+}
+
+#squarePath{
+    position: relative;
+    /* background-image: url("assets/w1_moleTown_statue.png"); */
+    /* background-size: cover; */
+    top:221px;
+    left:420px;
+    width: 452px;
+    height: 370px;
 }
 
 .moleImage{
