@@ -8,7 +8,7 @@ let roomsItems;
 let speedX = 14;
 let speedY = 14;
 const carriedItems = [];
-
+let recovering = false; // used after Beetle Steve is hit. Small window where Steve can't be hit again.
 let xpos = 0;
 let ypos = 0;
 
@@ -71,12 +71,8 @@ function awake(){
          tiles[i].style.height = 200 + "px";
          tiles[i].style.top = 200 + "px";
 
-
-        console.log("tile x: " + tiles[i].style.left);
-        console.log("tile width: " + tiles[i].style.width);
      }
 
-     console.log("Beetle Steve height" + beetleSteve.style.height);
 }
 awake();
 
@@ -86,12 +82,10 @@ function update(){
     //**    ENEMY COLLISION CHECK      */
     
     for(let i = 0; i<currentEnemies.length;i++){
-        // console.log(enemyStyles[i].getPropertyValue("left"));
         if (xpos < parseInt(enemyStyles[i].getPropertyValue("left")) + parseInt(enemyStyles[i].getPropertyValue("width")) &&
         xpos + parseInt(beetleSteve.style.width) > parseInt(enemyStyles[i].getPropertyValue("left")) &&
         ypos < parseInt(enemyStyles[i].getPropertyValue("top")) + parseInt(enemyStyles[i].getPropertyValue("height")) &&
         parseInt(beetleSteve.style.height) + ypos > parseInt(enemyStyles[i].getPropertyValue("top"))) {
-            console.log("ENEMY Collision Happened!!!!!!! :D")
             enemyCollision();
         }
       
@@ -179,7 +173,6 @@ function move(x,y){
         ypos += y;
         beetleSteve.style.left = xpos  +"px";
         beetleSteve.style.top = ypos  +"px";
-        console.log(beetleSteve.style.left);
     }
 }
 
@@ -249,13 +242,27 @@ function gatherItem(item){
 
 
 function enemyCollision(){
-    if(carriedItems.length > 0){
-        carriedItems[carriedItems.length-1].style.display = "none"; // hides the top most item collected
-        carriedItems.pop();
-    }else{
-        death();
+    if(!recovering){
+        if(carriedItems.length > 0){
+            recovering = true;
+            let delay = setInterval(recoveryPeriod,1000);
+            carriedItems[carriedItems.length-1].style.display = "none"; // hides the top most item collected
+            carriedItems.pop();
+            function recoveryPeriod(){
+                console.log("recovery period function called")
+
+                recovering = false;
+                clearInterval(delay);
+                
+            }
+        }else{
+            death();
+        }
     }
+
+    
 }
+
 
 
 function death(){
