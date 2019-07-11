@@ -3,10 +3,10 @@ const beetleSteve = document.querySelector("#beetle-steve");
 let currentEnemies = document.querySelectorAll(".enemy");
 const enemyStyles = [];
 let roomsItemsData = [];
-const tiles = document.querySelectorAll(".treeBarrier");
+const tiles = document.querySelectorAll(".tile");
 let roomsItems;
-let speedX = 14;
-let speedY = 14;
+let speedX = 20;
+let speedY = 20;
 const carriedItems = [];
 let recovering = false; // used after Beetle Steve is hit. Small window where Steve can't be hit again.
 let xpos = 0;
@@ -27,16 +27,12 @@ window.addEventListener("keydown", checkDirection)
 //happens at the start of page load
 function awake(){
     for(let i = 0; i < 1; i++){
-        let newItem = new Item(300 +(i*140),40,100,100)
-        roomsItemsData.push(newItem)
+        makeItems(200,40);
+        makeItems(1100,40);
+        makeItems(70,530);
+        makeItems(1170,530);
+        makeItems(650,210);
 
-        let newDiv = document.createElement("div");
-        newDiv.classList.add("item");
-        newDiv.style.left = newItem.x + "px";
-        newDiv.style.top = newItem.y + "px";
-        newDiv.style.width = newItem.width;
-        newDiv.style.height = newItem.height;
-        document.body.appendChild(newDiv);
 
 
         beetleSteve.style.height = 150 + "px";
@@ -64,14 +60,14 @@ function awake(){
 
 
     //**Debug tile elements check */
-     for(let i = 0; i<tiles.length;i++){
-            //inititalizing the css properties here seems to be necessary in order to check the properties later
-         tiles[i].style.width = 400 + "px";
-         tiles[i].style.left = 0 + "px";
-         tiles[i].style.height = 200 + "px";
-         tiles[i].style.top = 200 + "px";
+    //  for(let i = 0; i<tiles.length;i++){
+    //         //inititalizing the css properties here seems to be necessary in order to check the properties later
+    //      tiles[i].style.width = 400 + "px";
+    //      tiles[i].style.left = 0 + "px";
+    //      tiles[i].style.height = 200 + "px";
+    //      tiles[i].style.top = 200 + "px";
 
-     }
+    //  }
 
 }
 awake();
@@ -104,35 +100,7 @@ function update(){
      }
      
 
-     //tile collision
-    //  for(let i = 0; i < tiles.length; i++){
-    //     while (xpos  < parseInt(tiles[i].style.left) + parseInt(tiles[i].style.width) &&
-    //     xpos + beetleSteve.style.width > tiles[i].style.left &&
-    //     ypos  < parseInt(tiles[i].style.top) + parseInt(tiles[i].style.height) &&
-    //     beetleSteve.style.height + ypos > tiles[i].style.top) {
-    //     console.log("TILE Collision Happened!!!!!!! :D")
-        
-    //     if(xpos  < parseInt(tiles[i].style.left) + parseInt(tiles[i].style.width)){
-    //         xpos = parseInt(tiles[i].style.left) + parseInt(tiles[i].style.width);
-    //     }else if(xpos + beetleSteve.style.width > tiles[i].style.left){
-    //         xpos = beetleSteve.style.width > tiles[i].style.left;
-    //     }else if( ypos  < parseInt(tiles[i].style.top) + parseInt(tiles[i].style.height)){
-    //         ypos = parseInt(tiles[i].style.top) + parseInt(tiles[i].style.height);
-    //     }else if(beetleSteve.style.height + ypos > tiles[i].style.top){
-    //         ypos = tiles[i].style.top - beetleSteve.style.height ;
-    //     }
-
-    //     beetleSteve.style.left = xpos  +"px";
-    //     beetleSteve.style.top = ypos  +"px";
-    //  }
-    // }
-     //else{
-    //     console.log("-----------------------")
-    //     console.log(xpos < parseInt(roomsItems[i].style.left) + roomsItemsData[i].width); 
-    //     console.log(xpos + beetleSteve.style.width > roomsItems[i].style.left);
-    //     console.log(ypos < parseInt(roomsItems[i].style.top) + roomsItemsData[i].height);
-    //     console.log(beetleSteve.style.height + ypos > roomsItems[i].style.top);
-    // }
+  
   }
     
 }
@@ -177,14 +145,7 @@ function move(x,y){
 }
 
 function getOutOfTileBounds(x,y,tile){
-    // while (xpos < parseInt(tile.left) + parseInt(tile.width)){
-    //     xpos += 5;
-    // } 
-    // while(xpos + beetleSteve.style.width > parseInt(tile.left)){
-    //         xpos -= 5;
-    // }while(ypos  < parseInt(tile.top) + parseInt(tile.height)){
-    //         ypos +=5;
-    // } 
+ 
     console.log(parseInt(beetleSteve.style.height) + ypos - parseInt(tile.top));
     console.log(ypos  - (parseInt(tile.top) + parseInt(tile.height)));
     console.log(xpos + parseInt(beetleSteve.style.width) - parseInt(tile.left));
@@ -234,10 +195,10 @@ function checkDirection(element){
 function gatherItem(item){
     console.log("gatherItem() called!  ---")
     currentlyHeldItems++;
-    item.style.top = 30 +(30*carriedItems.length); //items pile on each other
+    carriedItems.push(item);
+    item.style.top = 30 +(50*carriedItems.length); //items pile on each other
     item.style.left = 0;
     beetleSteve.appendChild(item);
-    carriedItems.push(item);
 }
 
 
@@ -274,4 +235,17 @@ function Item(x,y,width,height){
     this.y = y;
     this.width = width;
     this.height = height;
+}
+
+function makeItems(itemX,itemY){
+        let newItem = new Item(itemX,itemY,100,100)
+        roomsItemsData.push(newItem)
+
+        let newDiv = document.createElement("div");
+        newDiv.classList.add("item");
+        newDiv.style.left = newItem.x + "px";
+        newDiv.style.top = newItem.y + "px";
+        newDiv.style.width = newItem.width;
+        newDiv.style.height = newItem.height;
+        document.body.appendChild(newDiv);
 }
