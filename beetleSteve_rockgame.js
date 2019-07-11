@@ -196,7 +196,7 @@ function gatherItem(item){
     console.log("gatherItem() called!  ---")
     currentlyHeldItems++;
     carriedItems.push(item);
-    item.style.top = 30 +(50*carriedItems.length); //items pile on each other
+    item.style.top = 30 - (20*carriedItems.length); //items pile on each other
     item.style.left = 0;
     beetleSteve.appendChild(item);
 }
