@@ -1,6 +1,7 @@
 
 const beetleSteve = document.querySelector("#beetle-steve");
-let currentEnemies = [];//document.querySelectorAll(".enemy");
+let currentEnemies = document.querySelectorAll(".enemy");
+const enemyStyles = [];
 let roomsItemsData = [];
 const tiles = document.querySelectorAll(".treeBarrier");
 let roomsItems;
@@ -41,18 +42,24 @@ function awake(){
         beetleSteve.style.height = 150 + "px";
         beetleSteve.style.width = 130 + "px";
 
+
     }
     roomsItems = document.querySelectorAll(".item"); //keep track of items
     //creation of enemy
     
-    let enemyDiv = document.createElement("div");
-    let newEnemy = new Enemy(400,30,300,3000,enemyDiv);
-    enemyDiv.classList.add("enemy");
-    enemyDiv.style.top = newEnemy.y + "px";
-    enemyDiv.style.left = newEnemy.x + "px";
-    currentEnemies.push(newEnemy);
+    // let enemyDiv = document.createElement("div");
+    // let newEnemy = new Enemy(400,30,300,3000,enemyDiv);
+    // enemyDiv.classList.add("enemy");
+    // enemyDiv.style.top = newEnemy.y + "px";
+    // enemyDiv.style.left = newEnemy.x + "px";
+    // currentEnemies.push(newEnemy);
 
-    document.body.appendChild(enemyDiv);
+    // document.body.appendChild(enemyDiv);
+
+    for(let i = 0; i < currentEnemies.length; i++){
+        enemyStyles.push(window.getComputedStyle(currentEnemies[i]));
+        console.log("Enemy width: "+ enemyStyles[i].getPropertyValue("width"));
+    }
 
 
 
@@ -76,31 +83,27 @@ awake();
 
 //happens every 1/10 second.
 function update(){
-
-    // for(let i = 0; i<currentEnemies.length;i++){
-    //       console.log("enemy x:" + currentEnemies[i].style.left);
-    //     if (beetleSteve.style.left < currentEnemies[i].style.left + currentEnemies[i].style.width &&
-    //         beetleSteve.style.left + beetleSteve.style.width > currentEnemies[i].style.left &&
-    //         beetleSteve.style.top < currentEnemies[i].style.top + currentEnemies[i].style.height &&
-    //         beetleSteve.style.height + beetleSteve.style.top > currentEnemies[i].y) {
-    //             console.log("Collision Happened!!!!!!! :D")
-    //     }else{
-    //         // console.log("no collision :(" + element.style.left +" "+ beetleSteve.style.left + " ");
-    //     }
-    // }
-    for(let i = 0; i<roomsItems.length;i++){
-    //   if (xpos < roomsItems[i].x + roomsItems[i].width &&
-    //       xpos + beetleSteve.style.width > roomsItems[i].x &&
-    //       ypos < roomsItems[i].y + roomsItems[i].height &&
-    //       beetleSteve.style.height + ypos > roomsItems[i].y) {
-    //           console.log("Collision Happened!!!!!!! :D")
-    //           gatherItem();
-    //   }      
+    //**    ENEMY COLLISION CHECK      */
     
+    for(let i = 0; i<currentEnemies.length;i++){
+        // console.log(enemyStyles[i].getPropertyValue("left"));
+        if (xpos < parseInt(enemyStyles[i].getPropertyValue("left")) + parseInt(enemyStyles[i].getPropertyValue("width")) &&
+        xpos + parseInt(beetleSteve.style.width) > parseInt(enemyStyles[i].getPropertyValue("left")) &&
+        ypos < parseInt(enemyStyles[i].getPropertyValue("top")) + parseInt(enemyStyles[i].getPropertyValue("height")) &&
+        parseInt(beetleSteve.style.height) + ypos > parseInt(enemyStyles[i].getPropertyValue("top"))) {
+            console.log("ENEMY Collision Happened!!!!!!! :D")
+
+        }
+      
+    }
+
+    //**        ITEM COLLISION CHECK        */
+    for(let i = 0; i<roomsItems.length;i++){
+  
     if (xpos < parseInt(roomsItems[i].style.left) + roomsItemsData[i].width &&
-        xpos + beetleSteve.style.width > roomsItems[i].style.left &&
+        xpos + parseInt(beetleSteve.style.width) > parseInt(roomsItems[i].style.left) &&
         ypos < parseInt(roomsItems[i].style.top) + roomsItemsData[i].height &&
-        beetleSteve.style.height + ypos > roomsItems[i].style.top) {
+        parseInt(beetleSteve.style.height) + ypos > parseInt(roomsItems[i].style.top)) {
         console.log("Collision Happened!!!!!!! :D")
 
         gatherItem(roomsItems[i]);
