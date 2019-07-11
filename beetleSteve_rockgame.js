@@ -92,7 +92,7 @@ function update(){
         ypos < parseInt(enemyStyles[i].getPropertyValue("top")) + parseInt(enemyStyles[i].getPropertyValue("height")) &&
         parseInt(beetleSteve.style.height) + ypos > parseInt(enemyStyles[i].getPropertyValue("top"))) {
             console.log("ENEMY Collision Happened!!!!!!! :D")
-
+            enemyCollision();
         }
       
     }
@@ -247,6 +247,20 @@ function gatherItem(item){
     carriedItems.push(item);
 }
 
+
+function enemyCollision(){
+    if(carriedItems.length > 0){
+        carriedItems[carriedItems.length-1].style.display = "none"; // hides the top most item collected
+        carriedItems.pop();
+    }else{
+        death();
+    }
+}
+
+
+function death(){
+    console.log("Death is called")
+}
 
 function Item(x,y,width,height){
     this.x = x;
