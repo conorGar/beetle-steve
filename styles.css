@@ -171,17 +171,26 @@ img{
     width: 100px;
     height: 100px;
     position: absolute;
-    content: url("assets/squirrel.png");
+    /* content: url("assets/squirrel.png"); */
 }
 
 .squirrel{
     position: absolute;
 
-    animation: leftRight 11.7s infinite;
+    animation: topDown1 3.7s infinite;
+}
+
+#squirrel1{
+    left:930px;
 }
 
 #squirrel2{
-    top: 200px;
+    left: 300px;
+}
+.moleGuard{
+    position: absolute;
+
+    animation: squarePath 10s infinite;
 }
 
 
@@ -204,4 +213,26 @@ img{
     100% {
       left: 0;
     }
+  }
+
+  @keyframes topDown1 {
+    0% {
+      top: 490px;
+    }
+    50% {
+      top: 690px;
+    }
+    100% {
+      top: 490px;
+    }
+  }
+
+  @keyframes squarePath{
+      0%{
+        left: 461px; top: 308px; transform: translate(0%, -100%);
+      }
+    25% { left: 461px; top: 573px; transform: translate(0%, -100%); }
+  50% { left: 879px; top: 573px; transform: translate(-100%, -100%); }
+  75% { left: 879px; top: 208px; transform: translate(-100%, 0%); }
+  100% { left: 461px; top: 308px; transform: translate(0%, -100%); }
   }

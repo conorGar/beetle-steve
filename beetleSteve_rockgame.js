@@ -117,7 +117,7 @@ function move(x,y){
     let canMove = true;
     
     
-
+    //** Tile Collision check */
     for(let i = 0; i < tiles.length; i++){
         if (xpos + x < parseInt(tiles[i].style.left) + parseInt(tiles[i].style.width) &&
         xpos + x + parseInt(beetleSteve.style.width) > parseInt(tiles[i].style.left) &&
