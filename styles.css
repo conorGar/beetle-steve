@@ -16,8 +16,11 @@ body{
 }
 
 #beetle-steve-image{
-    width:100%;
-    height: 100%;
+    width:110px;
+    height: 130px;
+    top:-50px;
+    left:-40px;
+    position: absolute;
 }
 
 .item{
@@ -39,11 +42,11 @@ img{
 .tile{
     width: 400px;
     height: 200px;
-    background-color: red;
+    /* background-color: red; */
 
 }
 
-
+/* ----------- Tiles -------*/
 #treeBarrier{
     position: absolute;
     top:300px;
@@ -138,6 +141,21 @@ img{
     width: 212px;
     height: 170px;
 }
+/* ----------- Non tile environment -------*/
+
+.grass{
+    background-image: url("assets/grassTile.png");
+    background-size: 110px; 
+}
+
+#grassPatch1{
+    top:250px;
+    left:0px;
+    width: 430px;
+    height: 350px;
+    position: absolute;
+    z-index: -1;
+}
 
 #squarePath{
     position: relative;
@@ -149,6 +167,7 @@ img{
     height: 370px;
 }
 
+
 .moleImage{
     width: 270px;
     height: 400px;
@@ -156,7 +175,7 @@ img{
     left:-30px;
     position: absolute;
 }
-
+/* ----------- Enemies -------*/
 .enemy{
     width: 100px;
     height: 100px;
@@ -172,6 +191,15 @@ img{
     height: 100px;
     position: absolute;
     /* content: url("assets/squirrel.png"); */
+}
+
+
+.enemySpearMoleImg{
+    width: 220px;
+    height: 130px;
+    top: -20px;
+    left:-60px;
+    position: absolute;
 }
 
 .squirrel{
