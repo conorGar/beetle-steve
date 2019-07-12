@@ -37,12 +37,20 @@ window.addEventListener("keyup",idleAniSwitch);
 //happens at the start of page load
 function awake(){
     for(let i = 0; i < 1; i++){
+
+        // Room 0 items
         makeItems(200,40);
         makeItems(1100,40);
         makeItems(70,530);
         makeItems(1170,530);
         makeItems(650,210);
 
+
+        // Room 3 Items
+        makeItems(496,932);
+        makeItems(725,932);
+        makeItems(60,1280);
+       
 
 
         beetleSteve.style.height = 70 + "px";
