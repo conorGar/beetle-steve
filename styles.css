@@ -135,7 +135,7 @@ img{
 
 #fenceBarrier1{
     position: absolute;
-    top:350px;
+    top:1030px;
     left:0px;
     /* background-image: url("assets/tree.png"); */
     background-color: pink;
@@ -146,7 +146,7 @@ img{
 
 #fenceBarrier2{
     position: absolute;
-    top:250px;
+    top:930px;
     left:600px;
     /* background-image: url("assets/tree.png"); */
     background-color: pink;
@@ -156,7 +156,7 @@ img{
 }
 #fenceBarrier3{
     position: absolute;
-    top:350px;
+    top:1030px;
     left:870px;
     /* background-image: url("assets/tree.png"); */
     background-color: pink;
@@ -166,7 +166,7 @@ img{
 }
 #fenceBarrier4{
     position: absolute;
-    top:150px;
+    top:830px;
     left:220px;
     /* background-image: url("assets/tree.png"); */
     background-color: pink;
@@ -178,7 +178,7 @@ img{
 /*------------------Tiles ROOM 4*/
 #r2_treeBarrier1{
     position: absolute;
-    top:600px;
+    top:1280px;
     left:200px;
     /* background-image: url("assets/tree.png"); */
     background-color: pink;
@@ -188,7 +188,7 @@ img{
 }
 #r2_treeBarrier2{
     position: absolute;
-    top:600px;
+    top:1280px;
     left:870px;
     /* background-image: url("assets/tree.png"); */
     background-color: pink;
@@ -373,14 +373,14 @@ img{
     position: relative;
     left:430px;
     animation: leftRight1 2.7s infinite;
-    top:350px;
+    top:650px;
 
 }
 #R3_squirrel2{
     position: relative;
     left:430px;
     animation: leftRight2 2.7s infinite;
-    top:250px;
+    top:550px;
 
 }
 

@@ -23,8 +23,7 @@ let currentlyHeldItems = 0;
 
 setInterval(update,100);
 
-//debug enemy check
-
+console.log("number of tile blocks: " + tiles.length)
 
 window.addEventListener("keydown", checkDirection)
 window.addEventListener("keyup",idleAniSwitch);
