@@ -1,7 +1,9 @@
 
 const beetleSteve = document.querySelector("#beetle-steve");
+const beetleSteveAni = document.querySelector("#beetle-steve-image");
 let currentEnemies = document.querySelectorAll(".enemy");
 const enemyStyles = [];
+
 let roomsItemsData = [];
 const tiles = document.querySelectorAll(".tile");
 const tileStyles = [];
@@ -24,7 +26,7 @@ setInterval(update,100);
 
 
 window.addEventListener("keydown", checkDirection)
-
+window.addEventListener("keyup",idleAniSwitch);
 //happens at the start of page load
 function awake(){
     for(let i = 0; i < 1; i++){
@@ -120,7 +122,8 @@ function update(){
 
 function move(x,y){
     let canMove = true;
-    
+    beetleSteveAni.className = "beetleSteveWalk"
+
     
     //** Tile Collision check */
     for(let i = 0; i < tiles.length; i++){
@@ -153,6 +156,11 @@ function move(x,y){
     }
 }
 
+
+function idleAniSwitch()
+{
+    beetleSteveAni.className = "beetleSteveIdle"
+}
 function getOutOfTileBounds(x,y,tile){
  
     console.log(Math.abs(parseInt(beetleSteve.style.height) + ypos - parseInt(tile.getPropertyValue("top"))));
