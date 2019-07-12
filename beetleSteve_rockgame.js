@@ -14,7 +14,7 @@ const carriedItems = [];
 let recovering = false; // used after Beetle Steve is hit. Small window where Steve can't be hit again.
 let xpos = 0;
 let ypos = 0;
-
+const roomArray;
 
 let currentlyHeldItems = 0;
 
@@ -27,6 +27,13 @@ setInterval(update,100);
 
 window.addEventListener("keydown", checkDirection)
 window.addEventListener("keyup",idleAniSwitch);
+
+window.addEventListener("scroll", function(e){
+    e.preventDefault();
+    window.scrollTo(0, 60);
+},true)
+
+
 //happens at the start of page load
 function awake(){
     for(let i = 0; i < 1; i++){
@@ -44,16 +51,13 @@ function awake(){
 
     }
     roomsItems = document.querySelectorAll(".item"); //keep track of items
-    //creation of enemy
-    
-    // let enemyDiv = document.createElement("div");
-    // let newEnemy = new Enemy(400,30,300,3000,enemyDiv);
-    // enemyDiv.classList.add("enemy");
-    // enemyDiv.style.top = newEnemy.y + "px";
-    // enemyDiv.style.left = newEnemy.x + "px";
-    // currentEnemies.push(newEnemy);
+   
 
-    // document.body.appendChild(enemyDiv);
+    //** Create rooms */
+    let room1 = new Room(0,60);
+    roomArray.push(room1);
+    let room4 = new Room(0,1000);
+    roomArray.push(room4);
 
     for(let i = 0; i < currentEnemies.length; i++){
         enemyStyles.push(window.getComputedStyle(currentEnemies[i]));
@@ -153,9 +157,14 @@ function move(x,y){
         ypos += y;
         beetleSteve.style.left = xpos  +"px";
         beetleSteve.style.top = ypos  +"px";
+
+        checkRoomBounds();
     }
 }
 
+function checkRoomBounds(){
+
+}
 
 function idleAniSwitch()
 {
@@ -257,6 +266,11 @@ function Item(x,y,width,height){
     this.y = y;
     this.width = width;
     this.height = height;
+}
+
+function Room(x,y){
+    this.x = x;
+    this.y = y;
 }
 
 function makeItems(itemX,itemY){
