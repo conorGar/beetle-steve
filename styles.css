@@ -285,7 +285,7 @@ img{
     top: 400px;
     position: relative;
     background-image: url("assets/pollutedPeakCloud.png");
-    background-color: green;
+    /* background-color: green; */
 }
 
 .enemyImg{
