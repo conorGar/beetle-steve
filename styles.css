@@ -22,6 +22,21 @@ body{
     left:-40px;
     position: absolute;
 }
+#beetle-steve-shadow{
+    width:110px;
+    height: 130px;
+    top:-50px;
+    left:-40px;
+    position: absolute;
+}
+
+.beetleSteveWalk{
+    content: url("assets/w1_rhinoBeetle_walk1.gif");
+
+}
+.beetleSteveIdle{
+    content: url("assets/w1_rhinoBeetle_Idle.gif");
+}
 
 .item{
 
