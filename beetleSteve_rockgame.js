@@ -36,8 +36,8 @@ function awake(){
 
 
 
-        beetleSteve.style.height = 150 + "px";
-        beetleSteve.style.width = 130 + "px";
+        beetleSteve.style.height = 70 + "px";
+        beetleSteve.style.width = 50 + "px";
 
 
     }
