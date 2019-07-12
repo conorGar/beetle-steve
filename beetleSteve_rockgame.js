@@ -15,7 +15,8 @@ let recovering = false; // used after Beetle Steve is hit. Small window where St
 let xpos = 0;
 let ypos = 0;
 
-
+const roomArray = [];
+let currentRoom;
 let currentlyHeldItems = 0;
 
 
@@ -27,6 +28,14 @@ setInterval(update,100);
 
 window.addEventListener("keydown", checkDirection)
 window.addEventListener("keyup",idleAniSwitch);
+
+
+// window.addEventListener("scroll", function(e){
+//     e.preventDefault();
+//     window.scrollTo(currentRoom.x, currentRoom.y);
+// },true)
+
+
 //happens at the start of page load
 function awake(){
     for(let i = 0; i < 1; i++){
@@ -46,14 +55,19 @@ function awake(){
     roomsItems = document.querySelectorAll(".item"); //keep track of items
     //creation of enemy
     
-    // let enemyDiv = document.createElement("div");
-    // let newEnemy = new Enemy(400,30,300,3000,enemyDiv);
-    // enemyDiv.classList.add("enemy");
-    // enemyDiv.style.top = newEnemy.y + "px";
-    // enemyDiv.style.left = newEnemy.x + "px";
-    // currentEnemies.push(newEnemy);
+    //**     Room Setup */
+    let room1 = new Room(0,60,0);
+    roomArray.push(room1);
+    let room2 = new Room(1000,60,1);
+    roomArray.push(room2);
+    let room3 = new Room(2000,60,2);
+    roomArray.push(room3);
+    let room4 = new Room(0,750,3);
+    roomArray.push(room4);
 
-    // document.body.appendChild(enemyDiv);
+    currentRoom = roomArray[0]; //start in first room
+
+
 
     for(let i = 0; i < currentEnemies.length; i++){
         enemyStyles.push(window.getComputedStyle(currentEnemies[i]));
@@ -153,9 +167,26 @@ function move(x,y){
         ypos += y;
         beetleSteve.style.left = xpos  +"px";
         beetleSteve.style.top = ypos  +"px";
+
+        checkRoomBounds();
     }
 }
+function checkRoomBounds(){
+    if(xpos > currentRoom.x + currentRoom.width){
+        console.log("Move to right screen")
+    }else if(xpos < currentRoom.x){
+        console.log("Move to left room")
+    }else if(ypos > currentRoom.y + currentRoom.height){
+        console.log("Move to bottom screen")
+        if(currentRoom.roomNum < 3){
+            currentRoom = roomArray[currentRoom.roomNum+3];
+            window.scrollTo(currentRoom.x, currentRoom.y);
 
+        }
+    }else if(ypos < currentRoom.y){
+        console.log("Move to top screen")
+    }
+}
 
 function idleAniSwitch()
 {
@@ -259,6 +290,13 @@ function Item(x,y,width,height){
     this.height = height;
 }
 
+function Room(x,y,roomNum){
+    this.x = x;
+    this.y = y;
+    this.width = x +1000;
+    this.height = y + 690;
+    this.roomNum = roomNum;
+}
 function makeItems(itemX,itemY){
         let newItem = new Item(itemX,itemY,100,100)
         roomsItemsData.push(newItem)
