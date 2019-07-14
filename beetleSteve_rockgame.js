@@ -167,7 +167,13 @@ function move(x,y){
     //      console.log(parseInt(beetleSteve.style.height) + ypos + y> parseInt(tiles[i].style.top));
     //  }
     }
-
+    if(x > 0){
+        beetleSteve.classList.add("right")
+        beetleSteve.classList.remove("left");
+    }else if(x <0){
+        beetleSteve.classList.add("left")
+        beetleSteve.classList.remove("right");
+    }
     if(canMove){
         xpos += x;
         ypos += y;
@@ -252,8 +258,8 @@ function gatherItem(item){
     console.log("gatherItem() called!  ---")
     currentlyHeldItems++;
     carriedItems.push(item);
-    item.style.top = 30 - (20*carriedItems.length); //items pile on each other
-    item.style.left = 0;
+    item.style.top = 20 - (25*carriedItems.length) + "px"; //items pile on each other
+    item.style.left = -47 + "px";
     beetleSteve.appendChild(item);
 }
 

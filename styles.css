@@ -32,6 +32,16 @@ body{
     position: absolute;
 }
 
+.left{
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.right{
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
 .beetleSteveWalk{
     content: url("assets/w1_rhinoBeetle_walk1.gif");
 
@@ -43,6 +53,15 @@ body{
 
 
 /**   ----- ROOMS ---------- */
+#Room1{
+    top:0px;
+    left:1300px;
+    width:1300px;
+    height: 690px;
+    /* background-color: blueviolet; */
+    position: absolute;
+
+}
 
 #Room3{
     top:680px;
@@ -52,6 +71,17 @@ body{
     position: absolute;
 
 }
+#Room4{
+    top:680px;
+    left:1300px;
+    width:1300px;
+    height: 690px;
+    /* background-color: rosybrown; */
+    position: absolute;
+
+}
+
+/**-----------------------*/
 
 .item{
 
@@ -202,8 +232,93 @@ img{
     left:-20px;
     top:130px;
 }
+/*-------------Tiles Room 1*/
+#r1_treeBarrier1{
+    position: absolute;
+    top:300px;
+    left:1240px;
+    /* background-image: url("assets/tree.png"); */
+    background-color: pink;
+    width: 1360px;
+    height: 200px;
+    /* background-size: 200px 200px;  */
+}
 
-/*------------------Tiles ROOM 4*/
+#r1_moleStatue1{
+    position: absolute;
+    top:0px;
+    left:1700px;
+    background-image: url("assets/w1_moleTown_oldKing1.png");
+    background-size: cover;
+    width:200px;
+    height: 230px;
+}
+#r1_moleStatue2{
+    position: absolute;
+    top:0px;
+    left:2110px;
+    background-image: url("assets/w1_moleTown_oldKing1.png");
+    background-size: cover;
+    width:200px;
+    height: 230px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+#r1_gate{
+    position: absolute;
+    top:-10px;
+    left:1850px;
+    background-image: url("assets/w1_gate.png");
+    background-size: cover;
+    width:300px;
+    height: 230px;
+    z-index: -1;
+}
+/*----------Tiles Room 4*/
+.cattail{
+    background-color: aquamarine;
+}
+
+#cattailBarrier1{
+    position: absolute;
+    top:700px;
+    left:1300px;
+    width: 160px;
+    height: 140px;
+}
+#cattailBarrier2{
+    position: absolute;
+    top:650px;
+    left:1300px;
+    width: 560px;
+    height: 90px;
+}
+#cattailBarrier3{
+    position: absolute;
+    top:700px;
+    left:2440px;
+    width: 160px;
+    height: 140px;
+}
+#cattailBarrier4{
+    position: absolute;
+    top:650px;
+    left:2100px;
+    width: 500px;
+    height: 90px;
+}
+
+#swampPool{
+    position: absolute;
+    top:850px;
+    left:1620px;
+    width: 700px;
+    height: 350px;
+}
+
+
+
+/*------------------Tiles ROOM 3*/
 #r2_treeBarrier1{
     position: absolute;
     top:1280px;
@@ -224,6 +339,8 @@ img{
     height: 100px;
     /* background-size: 200px 200px;  */
 }
+
+
 
 #b3_t1{
     left:-60px;
@@ -311,7 +428,7 @@ img{
     height: 100px;
     left: 400px;
     top: 400px;
-    position: relative;
+    position: absolute;
     background-image: url("assets/pollutedPeakCloud.png");
     /* background-color: green; */
 }
@@ -322,7 +439,12 @@ img{
     position: absolute;
     /* content: url("assets/squirrel.png"); */
 }
-
+#moleGuardSwamp{
+    position: absolute;
+    left:1510px;
+    top:767px;
+    animation: squarePathSwamp1 13s infinite;
+}
 
 .enemySpearMoleImg{
     width: 220px;
@@ -345,11 +467,20 @@ img{
 #squirrel2{
     left: 300px;
 }
-.moleGuard{
+#moleGuard1{
     position: absolute;
 
     animation: squarePath 10s infinite;
 }
+
+
+#moleGuardSwamp2{
+    position: absolute;
+    left:1510px;
+    top:767px;
+    animation: squarePathSwamp2 13s infinite;
+}
+
 
 
 
@@ -394,6 +525,27 @@ img{
   75% { left: 879px; top: 208px; transform: translate(-100%, 0%); }
   100% { left: 461px; top: 308px; transform: translate(0%, -100%); }
   }
+
+  @keyframes squarePathSwamp1{
+    0%{
+      left: 1510px; top: 767px; transform: translate(0%, -100%);
+    }
+  25% { left: 2340px; top: 767px; transform: translate(0%, -100%); }
+50% { left: 2340px; top: 1200px; transform: translate(-100%, -100%); }
+75% { left: 1510px; top: 1200px; transform: translate(-100%, 0%); }
+100% { left: 1510px; top: 767px; transform: translate(0%, -100%); }
+}
+@keyframes squarePathSwamp2{
+    0%{
+        left: 2340px; top: 1200px; transform: translate(-100%, -100%); 
+    }
+  25% { left: 1510px; top: 1200px; transform: translate(-100%, 0%); }
+50% { left: 1510px; top: 767px; transform: translate(0%, -100%); }
+75% { left: 2340px; top: 767px; transform: translate(0%, -100%); }
+100% { left: 2340px; top: 1200px; transform: translate(-100%, -100%) }
+}
+
+
 
 
   /*ENEMIES ROOM 3*/
