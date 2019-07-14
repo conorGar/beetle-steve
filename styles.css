@@ -107,6 +107,40 @@ img{
 }
 
 /* ----------- Tiles -------*/
+
+#roomBarrier{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 10px;
+    height: 1400px;
+    background-color: chartreuse;
+}
+#roomBarrier_top{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 2600px;
+    height: 10px;
+    background-color: chartreuse;
+}
+#roomBarrier_bot{
+    position: absolute;
+    left: 0px;
+    top: 1360px;
+    width: 2600px;
+    height: 10px;
+    background-color: chartreuse;
+}
+#roomBarrier_right{
+    position: absolute;
+    left: 2600px;
+    top: 0px;
+    width: 10px;
+    height: 1400px;
+    background-color: chartreuse;
+}
+
 #treeBarrier{
     position: absolute;
     top:300px;
