@@ -4,7 +4,9 @@
   "description": "Do Your Best Beetle Steve game project",
   "main": "beetleSteve_rockgame.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .js",
+   "fix-all": "eslint --fix ."
   },
   "repository": {
     "type": "git",

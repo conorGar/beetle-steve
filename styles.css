@@ -196,9 +196,10 @@ img{
     left:940px;
     /* background-image: url("assets/tree.png"); */
     width: 400px;
-    height: 400px;
+    height: 200px;
     background-size: 200px 200px; 
     padding-bottom: 40px;
+    background-color: aqua;
 
 }
 
@@ -301,8 +302,8 @@ img{
     top:300px;
     left:1240px;
     /* background-image: url("assets/tree.png"); */
-    /* background-color: pink; */
-    width: 1360px;
+    background-color: pink;
+    width: 1160px;
     height: 200px;
     /* background-size: 200px 200px;  */
 }
@@ -698,8 +699,7 @@ img{
 }
 #moleGuard1{
     position: absolute;
-
-    animation: squarePath 10s infinite;
+    animation: squarePath linear 10s infinite;
 }
 
 
@@ -750,9 +750,17 @@ img{
         left: 461px; top: 308px; transform: translate(0%, -100%);
       }
     25% { left: 461px; top: 573px; transform: translate(0%, -100%); }
-  50% { left: 879px; top: 573px; transform: translate(-100%, -100%); }
-  75% { left: 879px; top: 208px; transform: translate(-100%, 0%); }
-  100% { left: 461px; top: 308px; transform: translate(0%, -100%); }
+  
+  50% { left: 879px; top: 573px; transform: translate(-100%, -100%);
+        
+
+} 
+
+  75% { left: 879px; top: 208px; transform: translate(-100%, 0%); 
+}
+  100% { left: 461px; top: 308px; transform: translate(0%, -100%);
+
+}
   }
 
   @keyframes squarePathSwamp1{
