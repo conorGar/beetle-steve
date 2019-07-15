@@ -142,7 +142,9 @@ function update(){
 
 function move(x,y){
     let canMove = true;
-    beetleSteveAni.className = "beetleSteveWalk"
+    if(!beetleSteveAni.classList.contains("hurt") && !beetleSteveAni.classList.contains("beetleSteveDeathImage")){
+        beetleSteveAni.className = "beetleSteveWalk"
+    }
 
     
     //** Tile Collision check */
@@ -218,7 +220,9 @@ function checkRoomBounds(){
 
 function idleAniSwitch()
 {
-    beetleSteveAni.className = "beetleSteveIdle"
+    if(!beetleSteveAni.classList.contains("hurt") && !beetleSteveAni.classList.contains("beetleSteveDeathImage")){
+        beetleSteveAni.className = "beetleSteveIdle"
+    }
 }
 function getOutOfTileBounds(x,y,tile){
  
@@ -280,28 +284,30 @@ function gatherItem(item){
 }
 
 
-// function enemyCollision(){
-//     if(!recovering){
-//         if(carriedItems.length > 0){
-//             recovering = true;
-//             let delay = setInterval(recoveryPeriod,1000);
-//             carriedItems[carriedItems.length-1].style.display = "none"; // hides the top most item collected
-//             carriedItems.pop();
-//             function recoveryPeriod(){
-//                 console.log("recovery period function called")
+function enemyCollision(){
+    if(!recovering){
+        if(carriedItems.length > 0){
+            recovering = true;
+            let delay = setInterval(recoveryPeriod,1000);
+            carriedItems[carriedItems.length-1].style.display = "none"; // hides the top most item collected
+            carriedItems.pop();
+            beetleSteveAni.classList.add("hurt");
+            function recoveryPeriod(){
+                console.log("recovery period function called")
 
-//                 recovering = false;
-//                 clearInterval(delay);
+                recovering = false;
+                beetleSteveAni.classList.remove("hurt");
+                clearInterval(delay);
                 
-//             }
-//         }else{
-//             recovering = true;
-//             death();
-//         }
-//     }
+            }
+        }else{
+            recovering = true;
+            death();
+        }
+    }
 
     
-// }
+}
 
 
 

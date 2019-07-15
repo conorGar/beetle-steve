@@ -50,6 +50,11 @@ body{
     content: url("assets/w1_rhinoBeetle_Idle.gif");
 }
 
+.hurt{
+    content: url("assets/w1_rhinoBeetle_dead.png");  
+    opacity: 0;
+    animation: hurtBlink .3s linear 0s infinite;
+}
 
 
 .blackFader{
@@ -840,3 +845,8 @@ img{
       100%{background-color: rgba(0,0,0,1) }
   }
 
+@keyframes hurtBlink{
+    0%{ opacity: 0;
+    }
+    100%{opacity: 1;}
+}
