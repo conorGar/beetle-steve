@@ -28,10 +28,10 @@ window.addEventListener("keydown", checkDirection)
 window.addEventListener("keyup",idleAniSwitch);
 
 
-// window.addEventListener("scroll", function(e){
-//     e.preventDefault();
-//     window.scrollTo(currentRoom.x, currentRoom.y);
-// },true)
+window.addEventListener("scroll", function(e){
+    e.preventDefault();
+    window.scrollTo(currentRoom.x, currentRoom.y);
+},true)
 
 
 //happens at the start of page load
@@ -64,11 +64,11 @@ function awake(){
     //**     Room Setup */
     let room1 = new Room(0,60,0);
     roomArray.push(room1);
-    let room2 = new Room(1000,60,1);
+    let room2 = new Room(1350,60,1);
     roomArray.push(room2);
-    let room3 = new Room(2000,60,2);
+    let room3 = new Room(0,750,2);
     roomArray.push(room3);
-    let room4 = new Room(0,750,3);
+    let room4 = new Room(1350,750,3);
     roomArray.push(room4);
 
     currentRoom = roomArray[0]; //start in first room
@@ -184,19 +184,35 @@ function move(x,y){
     }
 }
 function checkRoomBounds(){
-    if(xpos > currentRoom.x + currentRoom.width){
+    console.log(currentRoom.x + currentRoom.width + "..cureentRoomX || xPos: "+ xpos + "rNmbr:" + currentRoom.roomNum)
+    if(xpos + 50 > currentRoom.x + currentRoom.width){
         console.log("Move to right screen")
-    }else if(xpos < currentRoom.x){
-        console.log("Move to left room")
-    }else if(ypos > currentRoom.y + currentRoom.height){
-        console.log("Move to bottom screen")
-        if(currentRoom.roomNum < 3){
-            currentRoom = roomArray[currentRoom.roomNum+3];
+        if(currentRoom.roomNum === 0 ||currentRoom.roomNum === 2){
+            currentRoom = roomArray[currentRoom.roomNum+1];
+            window.scrollTo(currentRoom.x, currentRoom.y);
+
+        }
+    }else if(xpos + 50 < currentRoom.x){
+        console.log("****Move to left room")
+        if(currentRoom.roomNum === 1 ||currentRoom.roomNum === 3){
+            currentRoom = roomArray[currentRoom.roomNum-1];
+            window.scrollTo(currentRoom.x, currentRoom.y);
+
+        }
+    }else if(ypos + 130 > currentRoom.y + currentRoom.height){
+        console.log("******Move to bottom screen")
+        if(currentRoom.roomNum < 2){
+            currentRoom = roomArray[currentRoom.roomNum+2];
             window.scrollTo(currentRoom.x, currentRoom.y);
 
         }
     }else if(ypos < currentRoom.y){
         console.log("Move to top screen")
+        if(currentRoom.roomNum > 2){
+            currentRoom = roomArray[currentRoom.roomNum-2];
+            window.scrollTo(currentRoom.x, currentRoom.y);
+
+        }
     }
 }
 
@@ -264,28 +280,28 @@ function gatherItem(item){
 }
 
 
-function enemyCollision(){
-    if(!recovering){
-        if(carriedItems.length > 0){
-            recovering = true;
-            let delay = setInterval(recoveryPeriod,1000);
-            carriedItems[carriedItems.length-1].style.display = "none"; // hides the top most item collected
-            carriedItems.pop();
-            function recoveryPeriod(){
-                console.log("recovery period function called")
+// function enemyCollision(){
+//     if(!recovering){
+//         if(carriedItems.length > 0){
+//             recovering = true;
+//             let delay = setInterval(recoveryPeriod,1000);
+//             carriedItems[carriedItems.length-1].style.display = "none"; // hides the top most item collected
+//             carriedItems.pop();
+//             function recoveryPeriod(){
+//                 console.log("recovery period function called")
 
-                recovering = false;
-                clearInterval(delay);
+//                 recovering = false;
+//                 clearInterval(delay);
                 
-            }
-        }else{
-            recovering = true;
-            death();
-        }
-    }
+//             }
+//         }else{
+//             recovering = true;
+//             death();
+//         }
+//     }
 
     
-}
+// }
 
 
 
@@ -316,7 +332,7 @@ function Item(x,y,width,height){
 function Room(x,y,roomNum){
     this.x = x;
     this.y = y;
-    this.width = x +1000;
+    this.width = x +1350;
     this.height = y + 690;
     this.roomNum = roomNum;
 }
