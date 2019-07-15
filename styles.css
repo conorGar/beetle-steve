@@ -13,7 +13,7 @@ body{
     height: 150px;
     position: absolute;
     -webkit-transition: all .4s ease-out;
-    background-color: lightblue; 
+    /* background-color: lightblue;  */
 
 }
 
@@ -50,6 +50,30 @@ body{
     content: url("assets/w1_rhinoBeetle_Idle.gif");
 }
 
+
+
+.blackFader{
+    /* z-index: 2; */
+    /* background-color: red;  */
+    height: 2000px;
+    width: 3000px;
+    position: absolute;
+}
+.deathEffectBoxActive{
+    position: absolute;
+    height: 2000px;
+    width: 3000px;
+    z-index:6;
+    background-color: black; 
+    animation: fadeIn 1s ease-out 0s 1;
+}
+
+.beetleSteveDeathImage{
+    content: url("assets/w1_rhinoBeetle_dead.png");  
+    z-index: 8;
+    /* position: absolute; */
+    animation: deathAni 1s linear 1s 1;
+}
 
 
 /**   ----- ROOMS ---------- */
@@ -786,5 +810,33 @@ img{
     100% {
       left: 690px;
     }
+  }
+
+  @keyframes deathAni{
+    0%{
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    }
+  25% {    
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    }
+50% { 
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+ }
+75% { 
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+ }
+100% { 
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+ }
+  }
+
+  @keyframes fadeIn{
+      0%{background-color: rgba(0,0,0,0) }
+      100%{background-color: rgba(0,0,0,1) }
   }
 

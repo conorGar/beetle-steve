@@ -279,6 +279,7 @@ function enemyCollision(){
                 
             }
         }else{
+            recovering = true;
             death();
         }
     }
@@ -290,7 +291,17 @@ function enemyCollision(){
 
 function death(){
     console.log("Death is called")
-    alert("You Died!");
+    // alert("You Died!");
+   
+    beetleSteveAni.className = "beetleSteveDeathImage";
+    let blackFader = document.querySelector(".blackFader");
+    blackFader.className = "deathEffectBoxActive";
+    beetleSteve.style.zIndex = 10;
+    setInterval(restartPage,2000);
+
+}
+
+function restartPage(){
     window.location.href = "area1.html";
 
 }
