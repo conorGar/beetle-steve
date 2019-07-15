@@ -272,7 +272,7 @@ img{
     top:300px;
     left:1240px;
     /* background-image: url("assets/tree.png"); */
-    background-color: pink;
+    /* background-color: pink; */
     width: 1360px;
     height: 200px;
     /* background-size: 200px 200px;  */
@@ -308,9 +308,91 @@ img{
     height: 230px;
     z-index: -1;
 }
+
+
+#r1_tree1{
+    position: absolute;
+    left:-30px;    
+}
+#r1_tree2{
+    position: absolute;
+    left:130px;    
+}
+#r1_tree3{
+    position: absolute;
+    left:290px;    
+}
+#r1_tree4{
+    position: absolute;
+    left:450px;    
+}
+#r1_tree5{
+    position: absolute;
+    left:610px;    
+}
+#r1_tree6{
+    position: absolute;
+    left:770px;    
+}
+#r1_tree7{
+    position: absolute;
+    left:930px;    
+}
+#r1_tree8{
+    position: absolute;
+    left:1060px;    
+}
+
+#r1_tree10{
+    position: absolute;
+    left:-30px;    
+    top:30px
+}
+#r1_tree11{
+    position: absolute;
+    left:130px;  
+    top:30px
+  
+}
+#r1_tree12{
+    position: absolute;
+    left:290px; 
+    top:30px
+   
+}
+#r1_tree13{
+    position: absolute;
+    left:450px;    
+    top:30px
+
+}
+#r1_tree14{
+    position: absolute;
+    left:610px;   
+    top:30px
+ 
+}
+#r1_tree15{
+    position: absolute;
+    left:770px; 
+    top:30px
+   
+}
+#r1_tree16{
+    position: absolute;
+    left:930px;    
+    top:30px
+
+}
+#r1_tree17{
+    position: absolute;
+    left:1060px;
+    top:30px
+    
+}
 /*----------Tiles Room 4*/
 .cattail{
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
 
 #cattailBarrier1{
@@ -318,7 +400,7 @@ img{
     top:700px;
     left:1300px;
     width: 160px;
-    height: 140px;
+    height: 410px;
 }
 #cattailBarrier2{
     position: absolute;
@@ -332,7 +414,7 @@ img{
     top:700px;
     left:2440px;
     width: 160px;
-    height: 140px;
+    height: 640px;
 }
 #cattailBarrier4{
     position: absolute;
@@ -350,7 +432,90 @@ img{
     height: 350px;
 }
 
+#swampPatch{
+    position: absolute;
+    width: 770px;
+    height: 490px;
+    top: -90px;
+    left:-50px;
+}
 
+#cattail1{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : -60px;
+    left:-30px;
+}
+#cattail2{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : -60px;
+    left:100px;
+}
+#cattail3{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : -60px;
+    left:230px;
+}
+#cattail4{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : -60px;
+    left:360px;
+}
+#cattail5{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : -60px;
+    left:490px;
+
+}
+
+#cattail7{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : 60px;
+    left:-30px;
+
+}
+#cattail8{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : 160px;
+    left:-30px;
+
+}
+#cattail9{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : 260px;
+    left:-30px;
+
+}
+#cattail10{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : 360px;
+    left:-30px;
+
+}#cattail11{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : 460px;
+    left:-30px;
+
+}
 
 /*------------------Tiles ROOM 3*/
 #r2_treeBarrier1{
