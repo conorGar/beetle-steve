@@ -1,12 +1,36 @@
 
 
+.background{
+    position: absolute;
+    width: 100%;
+    height: 1000px;
+    background: linear-gradient(to bottom, #ffffff 0%, #66ffff 100%);
+    background-size: 100%;
+}
+
 #title{
     display: block;
     margin: 0 auto;
     align-items: center;
 
 }
+#titlePrompt{
+    z-index: -3;
+    color: red;
+    display: block;
+    /* position: absolute; */
+    margin: 0 auto;
+    align-items: center;
 
+}
+p{
+    -webkit-animation: wiggle 5s ease-in-out 0s infinite;
+    -ms-animation: wiggle 5s ease-in-out 0s infinite;
+    animation: wiggle 5s ease-in-out 0s infinite;
+    width:50%;
+    height: 50%;
+    margin: 0 auto;
+}
 #title-image{
     -webkit-animation: wiggle 5s ease-in-out 0s infinite;
     -ms-animation: wiggle 5s ease-in-out 0s infinite;
@@ -37,4 +61,75 @@
     50% {-ms-transform: rotate(-1deg);}
 
     100% {-ms-transform: rotate(1deg);}
+  }
+
+.cloud{
+height: 300px;
+width: 300px;
+position: absolute;
+
+}
+
+#cloud1{
+    top: 200px;
+    -webkit-animation: cloudMove1 6s infinite;
+    animation: cloudMove1 6s linear infinite;
+    transition: none;
+    width: 400px;
+    height: 400px;
+
+
+}
+
+#cloud2{
+    top: -200px;
+    -webkit-animation: cloudMove1 12s linear infinite;
+    animation: cloudMove1 12s infinite;
+    width: 540px;
+    height: 440px;
+
+}
+
+#cloud3{
+    top: 420px;
+    -webkit-animation: cloudMove1 9s infinite;
+    animation: cloudMove1 9s linear infinite ;
+    transition: none;
+}
+#cloud4{
+    top: 230px;
+    -webkit-animation: cloudMove1 16s infinite;
+    animation: cloudMove1 16s infinite;
+    height: 350px;
+    width: 350px;
+
+}
+
+/*Back clouds*/
+#cloud5{
+    top: 200px;
+    -webkit-animation: cloudMove1 26s infinite;
+    animation: cloudMove1 26s infinite;
+    height: 100px;
+    width: 100px;
+}
+
+#cloud6{
+    top: 100px;
+    -webkit-animation: cloudMove1 21s linear infinite;
+    animation: cloudMove1 21s linear infinite;
+
+}
+
+#cloud7{
+    top: 540px;
+    -webkit-animation: cloudMove1 32s linear infinite;
+    animation: cloudMove1 32s linear infinite ;
+
+}
+
+
+  @keyframes cloudMove1{
+      0%{left: 1200px;}
+      100%{left:-500px;}
   }
