@@ -90,11 +90,14 @@ function update() {
   //* *    ENEMY COLLISION CHECK      */
 
   for (let i = 0; i < currentEnemies.length; i++) {
+
     if (xpos < parseInt(enemyStyles[i].getPropertyValue('left')) + parseInt(enemyStyles[i].getPropertyValue('width'))
         && xpos + parseInt(beetleSteve.style.width) > parseInt(enemyStyles[i].getPropertyValue('left'))
         && ypos < parseInt(enemyStyles[i].getPropertyValue('top')) + parseInt(enemyStyles[i].getPropertyValue('height'))
         && parseInt(beetleSteve.style.height) + ypos > parseInt(enemyStyles[i].getPropertyValue('top'))) {
-      enemyCollision();
+            console.log(currentEnemies[i] );
+            console.log("Hit by enemy" + enemyStyles[i].getPropertyValue('width') + "   " + parseInt(enemyStyles[i].getPropertyValue('left')));
+            enemyCollision();
     }
   }
 

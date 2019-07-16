@@ -709,6 +709,8 @@ img{
     left: 400px;
     top: 400px;
     position: absolute;
+    /* background-color: aqua; */
+
 
 }
 
@@ -736,7 +738,7 @@ img{
 
 .squirrel{
     position: absolute;
-
+    /* background-color: aqua; */
     animation: topDown1 3.7s infinite;
 }
 
@@ -851,17 +853,17 @@ img{
 
   /*ENEMIES ROOM 3*/
 #R3_squirrel1{
-    position: relative;
+    position: absolute;
     left:430px;
     animation: leftRight1 2.7s infinite;
-    top:650px;
+    top:1020px;
 
 }
 #R3_squirrel2{
-    position: relative;
+    position: absolute;
     left:430px;
     animation: leftRight2 2.7s infinite;
-    top:550px;
+    top:1020px;
 
 }
 
