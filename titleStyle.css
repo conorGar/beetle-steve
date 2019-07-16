@@ -1,7 +1,5 @@
 
 
-<<<<<<< HEAD
-=======
 .background{
     position: absolute;
     width: 100%;
@@ -10,16 +8,12 @@
     background-size: 100%;
 }
 
->>>>>>> initial
 #title{
     display: block;
     margin: 0 auto;
     align-items: center;
 
 }
-<<<<<<< HEAD
-
-=======
 #titlePrompt{
     z-index: -3;
     color: red;
@@ -37,7 +31,6 @@ p{
     height: 50%;
     margin: 0 auto;
 }
->>>>>>> initial
 #title-image{
     -webkit-animation: wiggle 5s ease-in-out 0s infinite;
     -ms-animation: wiggle 5s ease-in-out 0s infinite;
@@ -68,8 +61,6 @@ p{
     50% {-ms-transform: rotate(-1deg);}
 
     100% {-ms-transform: rotate(1deg);}
-<<<<<<< HEAD
-=======
   }
 
 .cloud{
@@ -141,5 +132,4 @@ position: absolute;
   @keyframes cloudMove1{
       0%{left: 1200px;}
       100%{left:-500px;}
->>>>>>> initial
   }
