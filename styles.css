@@ -306,6 +306,8 @@ img{
     left: 1300px;
     width: 530px;
     height: 200px;
+    z-index: -1;
+
 }
 .cliff2{
     top: -20px;
@@ -313,6 +315,8 @@ img{
     left: 2150px;
     width: 550px;
     height: 200px;
+    z-index: -1;
+
 }
 
 
@@ -654,6 +658,7 @@ img{
 
 #squarePath{
     position: relative;
+    z-index: -1;
     top:221px;
     left:420px;
     width: 452px;
@@ -662,6 +667,8 @@ img{
 
 #straightPath1{
     position: absolute;
+    z-index: -1;
+
     top:721px;
     left:1440px;
     width: 1052px;
@@ -671,6 +678,8 @@ img{
 
 #straightPath2{
     position: absolute;
+    z-index: -1;
+
     top:1221px;
     left:1440px;
     width: 1052px;
@@ -680,6 +689,8 @@ img{
 #straightPathTop1{
     position: absolute;
     top:821px;
+    z-index: -1;
+
     left:1440px;
     width: 190px;
     height: 460px;
@@ -690,6 +701,8 @@ img{
     top:821px;
     left:2300px;
     width: 190px;
+    z-index: -1;
+
     height: 460px;
     opacity: 0.8;
 }

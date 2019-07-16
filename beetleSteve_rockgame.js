@@ -42,13 +42,16 @@ function awake() {
     makeItems(1100, 40);
     makeItems(70, 530);
     makeItems(1170, 530);
-    makeItems(650, 210);
+    makeItems(780, 290);
 
 
     // Room 3 Items
     makeItems(496, 932);
     makeItems(725, 932);
     makeItems(60, 1280);
+
+    makeItems(1470, 802);
+    makeItems(2334, 1230);
 
 
     beetleSteve.style.height = `${70}px`;
@@ -170,9 +173,9 @@ function checkRoomBounds() {
       currentRoom = roomArray[currentRoom.roomNum + 2];
       window.scrollTo(currentRoom.x, currentRoom.y);
     }
-  } else if (ypos < currentRoom.y) {
+  } else if (ypos + 20 < currentRoom.y) {
     console.log('Move to top screen');
-    if (currentRoom.roomNum > 2) {
+    if (currentRoom.roomNum >= 2) {
       currentRoom = roomArray[currentRoom.roomNum - 2];
       window.scrollTo(currentRoom.x, currentRoom.y);
     }
