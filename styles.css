@@ -110,6 +110,21 @@ body{
 
 }
 
+#boss-room{
+    top:680px;
+    left:2700px;
+    width:1300px;
+    height: 690px;
+    background-color: rosybrown;
+    position: absolute;
+
+}
+
+#endText{
+    font-size: 100px;
+
+}
+
 /**-----------------------*/
 
 .item{
@@ -337,6 +352,15 @@ img{
     width:300px;
     height: 230px;
     z-index: -1;
+}
+
+#gateTrigger{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-color: blueviolet;
+    left: 1850px;
+    top: 0px;
 }
 
 
@@ -658,7 +682,7 @@ img{
     left: 400px;
     top: 400px;
     position: absolute;
-    background-image: url("assets/pollutedPeakCloud.png");
+    /* background-image: url("assets/pollutedPeakCloud.png"); */
     /* background-color: green; */
 }
 
@@ -673,7 +697,7 @@ img{
     position: absolute;
     left:1510px;
     top:767px;
-    animation: squarePathSwamp1 13s infinite;
+    animation: squarePathSwamp1 linear 13s infinite;
 }
 
 .enemySpearMoleImg{
@@ -707,7 +731,21 @@ img{
     position: absolute;
     left:1510px;
     top:767px;
-    animation: squarePathSwamp2 13s infinite;
+    animation: squarePathSwamp2 linear 13s infinite;
+}
+
+#moleKing{
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    left:3100px;
+    top: 700px;
+}
+
+#moleKingImage{
+    width: 500px;
+    height: 500px;
+    position: absolute;
 }
 
 
