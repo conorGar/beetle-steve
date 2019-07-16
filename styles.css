@@ -1,5 +1,7 @@
 
 
+
+
 body{
     background-image: url("assets/grassback.jpg");
     background-size: auto;
@@ -9,9 +11,10 @@ body{
 
     width:130px;
     height: 150px;
+    top:90px;
+    left:40px;
     position: absolute;
     -webkit-transition: all .4s ease-out;
-    background-color: lightblue; 
 
 }
 
@@ -30,6 +33,16 @@ body{
     position: absolute;
 }
 
+.left{
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.right{
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
 .beetleSteveWalk{
     content: url("assets/w1_rhinoBeetle_walk1.gif");
 
@@ -37,6 +50,78 @@ body{
 .beetleSteveIdle{
     content: url("assets/w1_rhinoBeetle_Idle.gif");
 }
+
+.hurt{
+    content: url("assets/w1_rhinoBeetle_dead.png");  
+    opacity: 0;
+    animation: hurtBlink .3s linear 0s infinite;
+}
+
+
+.blackFader{
+ 
+    height: 2000px;
+    width: 3000px;
+    position: absolute;
+}
+.deathEffectBoxActive{
+    position: absolute;
+    height: 2000px;
+    width: 3000px;
+    z-index:6;
+    background-color: black; 
+    animation: fadeIn 1s ease-out 0s 1;
+}
+
+.beetleSteveDeathImage{
+    content: url("assets/w1_rhinoBeetle_dead.png");  
+    z-index: 8;
+    /* position: absolute; */
+    animation: deathAni 1s linear 1s 1;
+}
+
+
+/**   ----- ROOMS ---------- */
+#Room1{
+    top:0px;
+    left:1300px;
+    width:1300px;
+    height: 690px;
+    position: absolute;
+
+}
+
+#Room3{
+    top:680px;
+    width:1300px;
+    height: 690px;
+    position: absolute;
+
+}
+#Room4{
+    top:680px;
+    left:1300px;
+    width:1300px;
+    height: 690px;
+    position: absolute;
+
+}
+
+#boss-room{
+    top:680px;
+    left:2700px;
+    width:1300px;
+    height: 690px;
+    position: absolute;
+
+}
+
+#endText{
+    font-size: 100px;
+
+}
+
+/**-----------------------*/
 
 .item{
 
@@ -57,11 +142,40 @@ img{
 .tile{
     width: 400px;
     height: 200px;
-    /* background-color: red; */
 
 }
 
 /* ----------- Tiles -------*/
+
+#roomBarrier{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 10px;
+    height: 1400px;
+}
+#roomBarrier_top{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 2600px;
+    height: 10px;
+}
+#roomBarrier_bot{
+    position: absolute;
+    left: 0px;
+    top: 1360px;
+    width: 2600px;
+    height: 10px;
+}
+#roomBarrier_right{
+    position: absolute;
+    left: 2600px;
+    top: 0px;
+    width: 10px;
+    height: 1400px;
+}
+
 #treeBarrier{
     position: absolute;
     top:300px;
@@ -88,7 +202,7 @@ img{
     left:940px;
     /* background-image: url("assets/tree.png"); */
     width: 400px;
-    height: 400px;
+    height: 200px;
     background-size: 200px 200px; 
     padding-bottom: 40px;
 
@@ -109,6 +223,372 @@ img{
     position: absolute;
 
 }
+
+.fenceImage{
+    width: 130px;
+    height: 190px;
+    top:-100px;
+    position: absolute;
+    display: inline;
+}
+
+#fenceBarrier1{
+    position: absolute;
+    top:1030px;
+    left:0px;
+    /* background-image: url("assets/tree.png"); */
+    width: 460px;
+    height: 100px;
+    /* background-size: 200px 200px;  */
+}
+
+#fenceBarrier2{
+    position: absolute;
+    top:930px;
+    left:600px;
+    /* background-image: url("assets/tree.png"); */
+    width: 100px;
+    height: 300px;
+    /* background-size: 200px 200px;  */
+}
+#fenceBarrier3{
+    position: absolute;
+    top:1030px;
+    left:870px;
+    /* background-image: url("assets/tree.png"); */
+    width: 460px;
+    height: 100px;
+    /* background-size: 200px 200px;  */
+}
+#fenceBarrier4{
+    position: absolute;
+    top:830px;
+    left:220px;
+    width: 810px;
+    height: 80px;
+}
+#fence1{
+    left:-30px;
+}
+#fence2{
+    left:100px;
+}
+#fence3{
+    left:230px;
+}
+#fence4{
+    left:360px;
+}
+#fence5{
+    left:490px;
+
+}
+#fence6{
+    left:620px;
+}
+#fence7{
+    left:750px;
+
+}
+#fence8{
+    left:-20px;
+    top:30px;
+}
+#fence9{
+    left:-20px;
+    top:130px;
+}
+/*-------------Tiles Room 1*/
+
+.cliff{
+    top: -20px;
+    position: absolute;
+    left: 1300px;
+    width: 530px;
+    height: 200px;
+}
+.cliff2{
+    top: -20px;
+    position: absolute;
+    left: 2150px;
+    width: 550px;
+    height: 200px;
+}
+
+
+#r1_treeBarrier1{
+    position: absolute;
+    top:300px;
+    left:1240px;
+    width: 1160px;
+    height: 200px;
+}
+
+#r1_moleStatue1{
+    position: absolute;
+    top:0px;
+    left:1700px;
+    background-image: url("assets/w1_moleTown_oldKing1.png");
+    background-size: cover;
+    width:200px;
+    height: 230px;
+}
+#r1_moleStatue2{
+    position: absolute;
+    top:0px;
+    left:2110px;
+    background-image: url("assets/w1_moleTown_oldKing1.png");
+    background-size: cover;
+    width:200px;
+    height: 230px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+#r1_gate{
+    position: absolute;
+    top:-10px;
+    left:1850px;
+    background-image: url("assets/w1_gate.png");
+    background-size: cover;
+    width:300px;
+    height: 230px;
+    z-index: -1;
+}
+
+#gateTrigger{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: 1850px;
+    top: 0px;
+}
+
+
+#r1_tree1{
+    position: absolute;
+    left:-30px;    
+}
+#r1_tree2{
+    position: absolute;
+    left:130px;    
+}
+#r1_tree3{
+    position: absolute;
+    left:290px;    
+}
+#r1_tree4{
+    position: absolute;
+    left:450px;    
+}
+#r1_tree5{
+    position: absolute;
+    left:610px;    
+}
+#r1_tree6{
+    position: absolute;
+    left:770px;    
+}
+#r1_tree7{
+    position: absolute;
+    left:930px;    
+}
+#r1_tree8{
+    position: absolute;
+    left:1060px;    
+}
+
+#r1_tree10{
+    position: absolute;
+    left:-30px;    
+    top:30px
+}
+#r1_tree11{
+    position: absolute;
+    left:130px;  
+    top:30px
+  
+}
+#r1_tree12{
+    position: absolute;
+    left:290px; 
+    top:30px
+   
+}
+#r1_tree13{
+    position: absolute;
+    left:450px;    
+    top:30px
+
+}
+#r1_tree14{
+    position: absolute;
+    left:610px;   
+    top:30px
+ 
+}
+#r1_tree15{
+    position: absolute;
+    left:770px; 
+    top:30px
+   
+}
+#r1_tree16{
+    position: absolute;
+    left:930px;    
+    top:30px
+
+}
+#r1_tree17{
+    position: absolute;
+    left:1060px;
+    top:30px
+    
+}
+/*----------Tiles Room 4*/
+.cattail{
+    /* background-color: aquamarine; */
+}
+
+#cattailBarrier1{
+    position: absolute;
+    top:700px;
+    left:1300px;
+    width: 160px;
+    height: 410px;
+}
+#cattailBarrier2{
+    position: absolute;
+    top:650px;
+    left:1300px;
+    width: 560px;
+    height: 90px;
+}
+#cattailBarrier3{
+    position: absolute;
+    top:700px;
+    left:2440px;
+    width: 160px;
+    height: 640px;
+}
+#cattailBarrier4{
+    position: absolute;
+    top:650px;
+    left:2100px;
+    width: 500px;
+    height: 90px;
+}
+
+#swampPool{
+    position: absolute;
+    top:850px;
+    left:1620px;
+    width: 700px;
+    height: 350px;
+}
+
+#swampPatch{
+    position: absolute;
+    width: 770px;
+    height: 490px;
+    top: -90px;
+    left:-50px;
+}
+
+#cattail1{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : -60px;
+    left:-30px;
+}
+#cattail2{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : -60px;
+    left:100px;
+}
+#cattail3{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : -60px;
+    left:230px;
+}
+#cattail4{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : -60px;
+    left:360px;
+}
+#cattail5{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : -60px;
+    left:490px;
+
+}
+
+#cattail7{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : 60px;
+    left:-30px;
+
+}
+#cattail8{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : 160px;
+    left:-30px;
+
+}
+#cattail9{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : 260px;
+    left:-30px;
+
+}
+#cattail10{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : 360px;
+    left:-30px;
+
+}#cattail11{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top : 460px;
+    left:-30px;
+
+}
+
+/*------------------Tiles ROOM 3*/
+#r2_treeBarrier1{
+    position: absolute;
+    top:1280px;
+    left:200px;
+
+    width: 200px;
+    height: 100px;
+}
+#r2_treeBarrier2{
+    position: absolute;
+    top:1280px;
+    left:870px;
+    width: 200px;
+    height: 100px;
+}
+
+
 
 #b3_t1{
     left:-60px;
@@ -174,12 +654,44 @@ img{
 
 #squarePath{
     position: relative;
-    /* background-image: url("assets/w1_moleTown_statue.png"); */
-    /* background-size: cover; */
     top:221px;
     left:420px;
     width: 452px;
     height: 370px;
+}
+
+#straightPath1{
+    position: absolute;
+    top:721px;
+    left:1440px;
+    width: 1052px;
+    height: 160px;
+    opacity: 0.8;
+}
+
+#straightPath2{
+    position: absolute;
+    top:1221px;
+    left:1440px;
+    width: 1052px;
+    height: 160px;
+    opacity: 0.8;
+}
+#straightPathTop1{
+    position: absolute;
+    top:821px;
+    left:1440px;
+    width: 190px;
+    height: 460px;
+    opacity: 0.8;
+}
+#straightPathTop2{
+    position: absolute;
+    top:821px;
+    left:2300px;
+    width: 190px;
+    height: 460px;
+    opacity: 0.8;
 }
 
 
@@ -196,18 +708,22 @@ img{
     height: 100px;
     left: 400px;
     top: 400px;
-    position: relative;
-    background-image: url("assets/pollutedPeakCloud.png");
-    background-color: green;
+    position: absolute;
+
 }
 
 .enemyImg{
     width: 100px;
     height: 100px;
     position: absolute;
-    /* content: url("assets/squirrel.png"); */
-}
 
+}
+#moleGuardSwamp{
+    position: absolute;
+    left:1510px;
+    top:767px;
+    animation: squarePathSwamp1 linear 13s infinite;
+}
 
 .enemySpearMoleImg{
     width: 220px;
@@ -230,11 +746,33 @@ img{
 #squirrel2{
     left: 300px;
 }
-.moleGuard{
+#moleGuard1{
     position: absolute;
-
-    animation: squarePath 10s infinite;
+    animation: squarePath linear 10s infinite;
 }
+
+
+#moleGuardSwamp2{
+    position: absolute;
+    left:1510px;
+    top:767px;
+    animation: squarePathSwamp2 linear 13s infinite;
+}
+
+#moleKing{
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    left:3100px;
+    top: 700px;
+}
+
+#moleKingImage{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+}
+
 
 
 
@@ -275,7 +813,111 @@ img{
         left: 461px; top: 308px; transform: translate(0%, -100%);
       }
     25% { left: 461px; top: 573px; transform: translate(0%, -100%); }
-  50% { left: 879px; top: 573px; transform: translate(-100%, -100%); }
-  75% { left: 879px; top: 208px; transform: translate(-100%, 0%); }
-  100% { left: 461px; top: 308px; transform: translate(0%, -100%); }
+  
+  50% { left: 879px; top: 573px; transform: translate(-100%, -100%);
+        
+
+} 
+
+  75% { left: 879px; top: 208px; transform: translate(-100%, 0%); 
+}
+  100% { left: 461px; top: 308px; transform: translate(0%, -100%);
+
+}
   }
+
+  @keyframes squarePathSwamp1{
+    0%{
+      left: 1510px; top: 767px; transform: translate(0%, -100%);
+    }
+  25% { left: 2340px; top: 767px; transform: translate(0%, -100%); }
+50% { left: 2340px; top: 1200px; transform: translate(-100%, -100%); }
+75% { left: 1510px; top: 1200px; transform: translate(-100%, 0%); }
+100% { left: 1510px; top: 767px; transform: translate(0%, -100%); }
+}
+@keyframes squarePathSwamp2{
+    0%{
+        left: 2340px; top: 1200px; transform: translate(-100%, -100%); 
+    }
+  25% { left: 1510px; top: 1200px; transform: translate(-100%, 0%); }
+50% { left: 1510px; top: 767px; transform: translate(0%, -100%); }
+75% { left: 2340px; top: 767px; transform: translate(0%, -100%); }
+100% { left: 2340px; top: 1200px; transform: translate(-100%, -100%) }
+}
+
+
+
+
+  /*ENEMIES ROOM 3*/
+#R3_squirrel1{
+    position: relative;
+    left:430px;
+    animation: leftRight1 2.7s infinite;
+    top:650px;
+
+}
+#R3_squirrel2{
+    position: relative;
+    left:430px;
+    animation: leftRight2 2.7s infinite;
+    top:550px;
+
+}
+
+@keyframes leftRight1 {
+    0% {
+      left: 400px;
+    }
+    50% {
+      left: 530px;
+    }
+    100% {
+      left: 400px;
+    }
+  }
+
+  @keyframes leftRight2 {
+    0% {
+      left: 690px;
+    }
+    50% {
+      left: 820px;
+    }
+    100% {
+      left: 690px;
+    }
+  }
+
+  @keyframes deathAni{
+    0%{
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    }
+  25% {    
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    }
+50% { 
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+ }
+75% { 
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+ }
+100% { 
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+ }
+  }
+
+  @keyframes fadeIn{
+      0%{background-color: rgba(0,0,0,0) }
+      100%{background-color: rgba(0,0,0,1) }
+  }
+
+@keyframes hurtBlink{
+    0%{ opacity: 0;
+    }
+    100%{opacity: 1;}
+}
