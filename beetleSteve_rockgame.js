@@ -21,7 +21,6 @@ const roomArray = [];
 let currentRoom;
 let currentlyHeldItems = 0;
 
-
 setInterval(update, 100);
 
 
@@ -43,13 +42,16 @@ function awake() {
     makeItems(1100, 40);
     makeItems(70, 530);
     makeItems(1170, 530);
-    makeItems(650, 210);
+    makeItems(780, 290);
 
 
     // Room 3 Items
     makeItems(496, 932);
     makeItems(725, 932);
     makeItems(60, 1280);
+
+    makeItems(1470, 802);
+    makeItems(2334, 1230);
 
 
     beetleSteve.style.height = `${70}px`;
@@ -75,13 +77,11 @@ function awake() {
 
   for (let i = 0; i < currentEnemies.length; i++) {
     enemyStyles.push(window.getComputedStyle(currentEnemies[i]));
-    console.log(`Enemy width: ${enemyStyles[i].getPropertyValue('width')}`);
   }
 
   for (let i = 0; i < tiles.length; i++) {
     tileStyles.push(window.getComputedStyle(tiles[i]));
   }
-
 }
 awake();
 
@@ -91,21 +91,20 @@ function update() {
   //* *    ENEMY COLLISION CHECK      */
 
   for (let i = 0; i < currentEnemies.length; i++) {
-    if (xpos < parseInt(enemyStyles[i].getPropertyValue('left')) + parseInt(enemyStyles[i].getPropertyValue('width'))
-        && xpos + parseInt(beetleSteve.style.width) > parseInt(enemyStyles[i].getPropertyValue('left'))
-        && ypos < parseInt(enemyStyles[i].getPropertyValue('top')) + parseInt(enemyStyles[i].getPropertyValue('height'))
-        && parseInt(beetleSteve.style.height) + ypos > parseInt(enemyStyles[i].getPropertyValue('top'))) {
+    if (xpos < parseInt(enemyStyles[i].getPropertyValue('left'), 10) + parseInt(enemyStyles[i].getPropertyValue('width'), 10)
+        && xpos + parseInt(beetleSteve.style.width, 10) > parseInt(enemyStyles[i].getPropertyValue('left'), 10)
+        && ypos < parseInt(enemyStyles[i].getPropertyValue('top'), 10) + parseInt(enemyStyles[i].getPropertyValue('height'), 10)
+        && parseInt(beetleSteve.style.height, 10) + ypos > parseInt(enemyStyles[i].getPropertyValue('top'), 10)) {
       enemyCollision();
     }
   }
 
   //* *        ITEM COLLISION CHECK        */
   for (let i = 0; i < roomsItems.length; i++) {
-    if (xpos < parseInt(roomsItems[i].style.left) + roomsItemsData[i].width
-        && xpos + parseInt(beetleSteve.style.width) > parseInt(roomsItems[i].style.left)
-        && ypos < parseInt(roomsItems[i].style.top) + roomsItemsData[i].height
-        && parseInt(beetleSteve.style.height) + ypos > parseInt(roomsItems[i].style.top)) {
-      console.log('Collision Happened!!!!!!! :D');
+    if (xpos < parseInt(roomsItems[i].style.left, 10) + roomsItemsData[i].width
+        && xpos + parseInt(beetleSteve.style.width, 10) > parseInt(roomsItems[i].style.left, 10)
+        && ypos < parseInt(roomsItems[i].style.top, 10) + roomsItemsData[i].height
+        && parseInt(beetleSteve.style.height, 10) + ypos > parseInt(roomsItems[i].style.top, 10)) {
 
       gatherItem(roomsItems[i]);
     }
@@ -122,12 +121,10 @@ function move(x, y) {
 
   //* * Tile Collision check */
   for (let i = 0; i < tiles.length; i++) {
-    if (xpos + x < parseInt(tileStyles[i].getPropertyValue('left')) + parseInt(tileStyles[i].getPropertyValue('width'))
-        && xpos + x + parseInt(beetleSteve.style.width) > parseInt(tileStyles[i].getPropertyValue('left'))
-        && ypos + y < parseInt(tileStyles[i].getPropertyValue('top')) + parseInt(tileStyles[i].getPropertyValue('height'))
-        && parseInt(beetleSteve.style.height) + ypos + y > parseInt(tileStyles[i].getPropertyValue('top'))) {
-      console.log('TILE Collision Happened!!!!!!! :D');
-      // canMove = false;
+    if (xpos + x < parseInt(tileStyles[i].getPropertyValue('left'), 10) + parseInt(tileStyles[i].getPropertyValue('width'), 10)
+        && xpos + x + parseInt(beetleSteve.style.width, 10) > parseInt(tileStyles[i].getPropertyValue('left'), 10)
+        && ypos + y < parseInt(tileStyles[i].getPropertyValue('top'), 10) + parseInt(tileStyles[i].getPropertyValue('height'), 10)
+        && parseInt(beetleSteve.style.height, 10) + ypos + y > parseInt(tileStyles[i].getPropertyValue('top'), 10)) {
       getOutOfTileBounds(x, y, tileStyles[i]);
     }
   }
@@ -149,28 +146,23 @@ function move(x, y) {
   }
 }
 function checkRoomBounds() {
-  console.log(`${currentRoom.x + currentRoom.width}..cureentRoomX || xPos: ${xpos}rNmbr:${currentRoom.roomNum}`);
   if (xpos + 50 > currentRoom.x + currentRoom.width) {
-    console.log('Move to right screen');
     if (currentRoom.roomNum === 0 || currentRoom.roomNum === 2) {
       currentRoom = roomArray[currentRoom.roomNum + 1];
       window.scrollTo(currentRoom.x, currentRoom.y);
     }
   } else if (xpos + 50 < currentRoom.x) {
-    console.log('****Move to left room');
     if (currentRoom.roomNum === 1 || currentRoom.roomNum === 3) {
       currentRoom = roomArray[currentRoom.roomNum - 1];
       window.scrollTo(currentRoom.x, currentRoom.y);
     }
   } else if (ypos + 130 > currentRoom.y + currentRoom.height) {
-    console.log('******Move to bottom screen');
     if (currentRoom.roomNum < 2) {
       currentRoom = roomArray[currentRoom.roomNum + 2];
       window.scrollTo(currentRoom.x, currentRoom.y);
     }
-  } else if (ypos < currentRoom.y) {
-    console.log('Move to top screen');
-    if (currentRoom.roomNum > 2) {
+  } else if (ypos + 20 < currentRoom.y) {
+    if (currentRoom.roomNum >= 2) {
       currentRoom = roomArray[currentRoom.roomNum - 2];
       window.scrollTo(currentRoom.x, currentRoom.y);
     }
@@ -183,26 +175,21 @@ function idleAniSwitch() {
   }
 }
 function getOutOfTileBounds(x, y, tile) {
-  console.log(Math.abs(parseInt(beetleSteve.style.height) + ypos - parseInt(tile.getPropertyValue('top'))));
-  // console.log(ypos  - (parseInt(tile.top) + parseInt(tile.height)));
-  // console.log(xpos + parseInt(beetleSteve.style.width) - parseInt(tile.left));
-  // console.log(xpos - (parseInt(tile.left) + parseInt(tile.width)));
-  if (Math.abs(parseInt(beetleSteve.style.height) + ypos - parseInt(tile.getPropertyValue('top'))) < 20) { // check if beetle steve is above
-    console.log('got here push back check');
-    while (Math.abs(parseInt(beetleSteve.style.height) + ypos - parseInt(tile.getPropertyValue('top'))) < 20) {
-      console.log('top push back is happening...');
+ 
+  if (Math.abs(parseInt(beetleSteve.style.height, 10) + ypos - parseInt(tile.getPropertyValue('top'), 10)) < 20) { // check if beetle steve is above
+    while (Math.abs(parseInt(beetleSteve.style.height, 10) + ypos - parseInt(tile.getPropertyValue('top'), 10)) < 20) {
       ypos -= 5;
     }
-  } else if (Math.abs(ypos - (parseInt(tile.getPropertyValue('top')) + parseInt(tile.getPropertyValue('height')))) < 20) {
-    while (Math.abs(ypos - (parseInt(tile.getPropertyValue('top')) + parseInt(tile.getPropertyValue('height')))) < 20) {
+  } else if (Math.abs(ypos - (parseInt(tile.getPropertyValue('top'), 10) + parseInt(tile.getPropertyValue('height'), 10))) < 20) {
+    while (Math.abs(ypos - (parseInt(tile.getPropertyValue('top'), 10) + parseInt(tile.getPropertyValue('height'), 10))) < 20) {
       ypos += 5;
     }
-  } else if (Math.abs(xpos + parseInt(beetleSteve.style.width) - parseInt(tile.getPropertyValue('left'))) < 20) {
-    while (Math.abs(xpos + parseInt(beetleSteve.style.width) - parseInt(tile.getPropertyValue('left'))) < 20) {
+  } else if (Math.abs(xpos + parseInt(beetleSteve.style.width, 10) - parseInt(tile.getPropertyValue('left'), 10)) < 20) {
+    while (Math.abs(xpos + parseInt(beetleSteve.style.width, 10) - parseInt(tile.getPropertyValue('left'), 10)) < 20) {
       xpos -= 5;
     }
-  } else if (Math.abs(xpos - (parseInt(tile.getPropertyValue('left')) + parseInt(tile.getPropertyValue('width')))) < 20) {
-    while (Math.abs(xpos - (parseInt(tile.getPropertyValue('left')) + parseInt(tile.getPropertyValue('width')))) < 20) {
+  } else if (Math.abs(xpos - (parseInt(tile.getPropertyValue('left'), 10) + parseInt(tile.getPropertyValue('width'), 10))) < 20) {
+    while (Math.abs(xpos - (parseInt(tile.getPropertyValue('left'), 10) + parseInt(tile.getPropertyValue('width'), 10))) < 20) {
       xpos += 5;
     }
   }
@@ -211,12 +198,10 @@ function getOutOfTileBounds(x, y, tile) {
   beetleSteve.style.left = `${xpos}px`;
   beetleSteve.style.top = `${ypos}px`;
 
-  console.log('getOutOfTileBOundns() ended.....');
 }
 
 // determine given arrow key direction, and adjust the values called to 'move' function accordingly
 function checkDirection(element) {
-  console.log(`check direction activate:${element.keyCode}`);
   element.preventDefault(); // prevent user from scrolling the page using arrow keys
   if (element.keyCode === 39) { // right arrow
     move(speedX, 0);
@@ -232,7 +217,6 @@ function checkDirection(element) {
 
 // Activated when collided with item. Adds item to heldItems and 'attatches' new item to beetleSteve div.
 function gatherItem(item) {
-  console.log('gatherItem() called!  ---');
   currentlyHeldItems++;
   carriedItems.push(item);
   item.style.top = `${20 - (25 * carriedItems.length)}px`; // items pile on each other
@@ -250,7 +234,6 @@ function enemyCollision() {
       carriedItems.pop();
       beetleSteveAni.classList.add('hurt');
       function recoveryPeriod() {
-        console.log('recovery period function called');
 
         recovering = false;
         beetleSteveAni.classList.remove('hurt');
@@ -265,8 +248,6 @@ function enemyCollision() {
 
 
 function death() {
-  console.log('Death is called');
-  // alert("You Died!");
 
   beetleSteveAni.className = 'beetleSteveDeathImage';
   const blackFader = document.querySelector('.blackFader');
@@ -306,20 +287,16 @@ function makeItems(itemX, itemY) {
   document.body.appendChild(newDiv);
 }
 
-function checkOpenGate(){
-    if (xpos < parseInt(gateTrigger.getPropertyValue('left')) + parseInt(gateTrigger.getPropertyValue('width'))
-    && xpos + parseInt(beetleSteve.style.width) > parseInt(gateTrigger.getPropertyValue('left'))
-    && ypos < parseInt(gateTrigger.getPropertyValue('top')) + parseInt(gateTrigger.getPropertyValue('height'))
-    && parseInt(beetleSteve.style.height) + ypos > parseInt(gateTrigger.getPropertyValue('top'))) {
-        console.log("colliding with gate trigger x-x-x-x-x-x-")
-        if(carriedItems.length > 2) {
-            currentRoom = roomArray[4]; // boss room
-            console.log("REACHED GATE TRIGGER")
-            window.scrollTo(currentRoom.x, currentRoom.y);
-            const endingText = document.querySelector("#endText");
-            endingText.innerHTML = "Beetle Steve brought " + carriedItems.length + " rocks to a better place.";
-        }
+function checkOpenGate() {
+  if (xpos < parseInt(gateTrigger.getPropertyValue('left'), 10) + parseInt(gateTrigger.getPropertyValue('width'), 10)
+    && xpos + parseInt(beetleSteve.style.width, 10) > parseInt(gateTrigger.getPropertyValue('left'), 10)
+    && ypos < parseInt(gateTrigger.getPropertyValue('top'), 10) + parseInt(gateTrigger.getPropertyValue('height'), 10)
+    && parseInt(beetleSteve.style.height, 10) + ypos > parseInt(gateTrigger.getPropertyValue('top'), 10)) {
+    if (carriedItems.length > 2) {
+      currentRoom = roomArray[4]; // boss room
+      window.scrollTo(currentRoom.x, currentRoom.y);
+      const endingText = document.querySelector('#endText');
+      endingText.innerHTML = `Beetle Steve brought ${carriedItems.length} rocks to a better place.`;
     }
-
-   
+  }
 }
