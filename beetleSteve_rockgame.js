@@ -14,7 +14,7 @@ const speedY = 20;
 const carriedItems = [];
 let recovering = false; // used after Beetle Steve is hit. Small window where Steve can't be hit again.
 let xpos = 0;
-let ypos = 0;
+let ypos = 40;
 
 const roomArray = [];
 let currentRoom;
