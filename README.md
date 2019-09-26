@@ -1,12 +1,12 @@
 
-![Image of Beetle Steve Title](../assets/beetleSteveTitle2.png)
+![Image of Beetle Steve Title](beetleSteveGif.gif)
 
 
 # Story!
 
 "This is Beetle Steve"
 
-![Image of Beetle Steve](../assets/beetleSteve.png)
+![Image of Beetle Steve](beetleSteve.png)
 
 "Beetle Steve is sad and alone."
 
@@ -24,7 +24,7 @@ Beetle Steve often goes on long, lonely walks, to soak in his self-contempt.
 
 On one walk, Beetle Steve encounters a talking rock, as one often does when they go on such walks.
 
-![Image of Talking Rock](../assets/stone.png)
+![Image of Talking Rock](stone.png)
 
 "Oh boy, a hero! ", Says the rock.
 
@@ -53,7 +53,7 @@ Move Beetle Steve around with the arrow keys. Avoid enemies as you gather your r
 
 ## Launch
 
-Pay the game at:
+Play the game at:
 
 https://conorgar.github.io/beetle-steve/
 
